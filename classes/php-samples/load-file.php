@@ -1,6 +1,6 @@
 <?php
 /* 
- * Manipulação de arquivos
+ * Manipulação/leitura de arquivos
  */
 $sFileName = "../../data/main_index.csv";
 
