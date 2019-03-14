@@ -1,13 +1,12 @@
 <?php
 /* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Manipulação de arquivos
  */
 $sFileName = "../../data/main_index.csv";
 
 $rcFile = fopen($sFileName, "r");
 $sFileContent_fgets = "";
+
 if($rcFile){
     $sStatus_fst = "Arquivo aberto!";
     
@@ -17,6 +16,13 @@ if($rcFile){
     fclose($rcFile);
 }else{
     $sStatus_fst = "erro ao abir o arquivo!";
+}
+//Segunda forma: função file
+$asFileContent_file = file( $sFileName, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+if($asFileContent_file){
+    $sStatus_scn = "Arquivo aberto com sucesso!";
+}else{
+    $sStatus_scn = "Erro ao abrir o sucesso!";
 }
 ?>
 <!DOCTYPE html>
@@ -35,11 +41,22 @@ if($rcFile){
         <div id="divContent">
             <?php
                 //TODO:
-                echo"<h4>Aqui vem o conteúdo da nossa página...</h4>";
+                echo"<h4>Primeira forma: file</h4>";
                 echo"<h5>$sStatus_fst</h5>";
                 echo"<h6><pre>";
                     print_r($sFileContent_fgets);
-                echo"</h6></pre>";
+                echo"</pre></h6><hr />";
+                echo"<h6><pre>";
+                    print_r(explode ("\n", $sFileContent_fgets));
+                echo"</pre></h6><hr />";
+                
+                
+                //segunda forma
+                echo"<h4>Segunda forma: file</h4>";
+                echo"<h5>$sStatus_scn</h5>";
+                echo"<h6><pre>";
+                    print_r($asFileContent_file);
+                echo"</pre></h6><hr />";
             ?>
         </div>
     </body>
