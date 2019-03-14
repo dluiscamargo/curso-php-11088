@@ -4,7 +4,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-//$handle = fopen("main_index.csv", "r");
+ //$sFileName = "../../data/main_index.csv";
 //
 //$row = 0;
 //while ($line = fgetcsv($handle, 1000, ",")) {
@@ -25,12 +25,17 @@
 //fclose($handle);
 $sFileName = "../../data/main_index.csv";
 
-$rcFile = fopen($sFileName, $r);
-
+$rcFile = fopen($sFileName, "r");
+$sFileContent_fgets = "";
 if($rcFile){
+    $sStatus_fst = "Arquivo aberto!";
     
+    while ($sLine = fgets ($rcFile)) {
+        $sFileContent_fgets .= $sLine;
+    }
+    fclose($rcFile);
 }else{
-    $sStatus = "erro ao abir o arquivo!";
+    $sStatus_fst = "erro ao abir o arquivo!";
 }
 ?>
 <!DOCTYPE html>
@@ -49,7 +54,11 @@ if($rcFile){
         <div id="divContent">
             <?php
                 //TODO:
-                echo"<h5>Aqui vem o conteúdo da nossa página...</h5>";
+                echo"<h4>Aqui vem o conteúdo da nossa página...</h4>";
+                echo"<h5>$sStatus_fst</h5>";
+                echo"<h6><pre>";
+                    print_r($sFileContent_fgets);
+                echo"</h6></pre>";
             ?>
         </div>
     </body>
