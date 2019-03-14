@@ -4,25 +4,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
- //$sFileName = "../../data/main_index.csv";
-//
-//$row = 0;
-//while ($line = fgetcsv($handle, 1000, ",")) {
-//	if ($row++ == 0) {
-//		continue;
-//	}
-//	
-//	$main_index[] = [
-//		'nome' => $line[0],
-//		'site' => $line[1],
-//		'telefone' => $line[2],
-//		'idade' => $line[3]
-//	];
-//}
-//
-//print_r($main_index);
-//
-//fclose($handle);
 $sFileName = "../../data/main_index.csv";
 
 $rcFile = fopen($sFileName, "r");
