@@ -1,0 +1,13 @@
+{
+  "name": "curso-php-11088",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/aabreves/curso-php-11088.git",
+  "author": "aabreves <aa.breves@outlook.com>",
+  "license": "MIT",
+  "dependencies": {
+    "bootstrap": "^4.3.1",
+    "jquery": "^3.3.1",
+    "popper.js": "^1.14.7"
+  }
+}
