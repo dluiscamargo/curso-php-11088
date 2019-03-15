@@ -1,16 +1,32 @@
 <?php
 require_once "../utilities/menu-utilities.php";
+
 /* 
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
- * neste modulo quero 3 cropdows
- * oprimeiro faz = Files  Session eo tercero Objects
- * funcoes fopen, fread / fwhat e fclose
  */
+
+/*
+
+    Files   Session     Objects
+
+*/
+
 $asFilesSamples = [ [
         "href" => "php-samples/load-file.php",
         "target" => "ifrNav",
+        "caption" => "Load file"
+     ],[
+        "href" => "#",
+        "target" => "ifrNav",
+        "caption" => "Teste 1.2"
+     ] 
+];
+
+$asSessionSamples = [ [
+        "href" => "#",
+        "target" => "ifrNav",
         "caption" => "Teste 1.1"
      ],[
         "href" => "#",
@@ -18,24 +34,15 @@ $asFilesSamples = [ [
         "caption" => "Teste 1.2"
      ] 
 ];
-$asSessionsSamples = [ [
-        "href" => "#",
+
+$asObjectsSamples = [ [
+        "href" => "php-samples/objects-1.php",
         "target" => "ifrNav",
-        "caption" => "Teste 1.1"
+        "caption" => "Objetos"
      ],[
-        "href" => "#",
+        "href" => "php-samples/objects-2.php",
         "target" => "ifrNav",
-        "caption" => "Teste 1.2"
-     ] 
-];
-$asObjectSamples = [ [
-        "href" => "#",
-        "target" => "ifrNav",
-        "caption" => "Teste 1.1"
-     ],[
-        "href" => "#",
-        "target" => "ifrNav",
-        "caption" => "Teste 1.2"
+        "caption" => "Classes & Objetos"
      ] 
 ];
 ?>
@@ -51,11 +58,22 @@ $asObjectSamples = [ [
         
         <meta name="viewport"
               content="width=device-width, initial-scale=1" />
-
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        
+        <!-- ARQUIVOS NA PASTA node_modules DO PROJETO -->
+        <link rel="stylesheet"
+              href="../node_modules/bootstrap/dist/css/bootstrap.min.css" />
+        
+        <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+        <script src="../node_modules/popper.js/dist/umd/popper.min.js"></script>
+        <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+        
+        <!-- ARQUIVOS ONLINE (NA NUVEM) - CÓDIGO COPIADO DE
+        https://www.w3schools.com/bootstrap4/tryit.asp?filename=trybs_dropdown-active&stacked=h -->
+<!--        <link rel="stylesheet"
+              href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>-->
         
     </head>
 
@@ -73,9 +91,9 @@ $asObjectSamples = [ [
                        href="../index.php">Home</a>
                 </li>
                 <?php
-                    echo buildDropdownMenu( "NavFilesSamples", "FilesSamples", $asFilesSamples );
-                    echo buildDropdownMenu( "NavObjectSamples", "ObjectSamples", $asObjectSamples );
-                    echo buildDropdownMenu( "NavSessionsSamples", "SessionsSamples", $asSessionsSamples );
+                    echo buildDropdownMenu( "NavFiles",   "Files",   $asFilesSamples );
+                    echo buildDropdownMenu( "NavSession", "Session", $asSessionSamples );
+                    echo buildDropdownMenu( "NavObjects", "Objects", $asObjectsSamples );
                 ?>
             </ul>
         </nav>
@@ -86,3 +104,4 @@ $asObjectSamples = [ [
         </div>
     </body>
 </html>
+

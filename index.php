@@ -29,7 +29,7 @@
                 <a href="classes/aula-0103.php" target="_self" >Aula 01/mar</a>
             </li>
             <li>
-                <a href="classes/exercicios_old.php" target="_self" >Exercícios old</a>
+                <a href="classes/exercicios_old.php" target="_self" >Exercícios</a>
             </li>
             <li>
                 <a href="classes/exercicios.php" target="_self" >Exercícios</a>

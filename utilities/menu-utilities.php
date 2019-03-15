@@ -6,7 +6,7 @@
  * and open the template in the editor.
  */
 
-function buildDropdownMenu( $sId, $sTitle, $asLinks ) : string{
+function buildDropdownMenu( string $sId, string $sTitle, array $asLinks ) : string{
     
     $htmlMenu = "<li id=\"li{$sId}_dropdown\" class=\"nav-item dropdown\">
     <a id=\"a{$sId}_toggle\"
