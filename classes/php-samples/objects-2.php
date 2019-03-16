@@ -19,7 +19,7 @@ $jsonData = '{
     "name": "teste1",
     "email": "teste1@email.com"
 }';
-
+//new
 $oData = json_decode( $jsonData );
 
 $jsonString = json_encode( $asData_ass[5] );
@@ -93,20 +93,20 @@ function jsonDecode( $json /* 1 */ ){
               content="width=device-width, initial-scale=1" />
         
         <!-- ARQUIVOS NA PASTA node_modules DO PROJETO -->
-        <link rel="stylesheet"
+<!--        <link rel="stylesheet"
               href="../../node_modules/bootstrap/dist/css/bootstrap.min.css" />
         
         <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
         <script src="../../node_modules/popper.js/dist/umd/popper.min.js"></script>
-        <script src="../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>-->
         
         <!-- ARQUIVOS ONLINE (NA NUVEM) - CÓDIGO COPIADO DE
         https://www.w3schools.com/bootstrap4/tryit.asp?filename=trybs_dropdown-active&stacked=h -->
-<!--        <link rel="stylesheet"
+        <link rel="stylesheet"
               href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>-->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
         
     </head>
 

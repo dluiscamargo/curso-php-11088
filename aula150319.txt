@@ -1,0 +1,101 @@
+Assinchronous Javascript And XML
+
+ARRAY: sempre representado entre colchetes []
+
+$aVarName = []; // array vasio
+$aVarName = array(); // php mais antigo
+
+$aVarName[] = 3;
+$aVarName[] = 5;
+$aVarName[] = 7;
+
+$aVarName[ 2, 6, 9]; // array com tres parametros
+$aVarName = array(2,4,9) // php mais antigo
+
+***********************************************************************************************************************************************
+
+$aVarName[3] = 3; //adiciona elementos ao array
+$aVarName[1] = 5;
+$aVarName[8] = 7;
+--nesta notação o array não tem indice
+************************************************************************************************************************************************
+
+$aVarName["teste"] = 3; //adiciona elementos ao array
+$aVarName["abacaxi"] = 5;
+$aVarName["name"] = 7;
+
+$aVarName = ["teste" => 2, "abacaxi" => 6, "name" => 9];
+
+-- nesta forma cria-se o array com a indexação associativa: os indeices são definidos pod strings
+
+independente da forma como o array é criado e da forma como ele é indexado, nós sempre temos uma sequencia de variaveis indexadas;
+
+Um objeto também é definidao (entre outras coisas) por uma sequencia de variaveis (como um array )porem esta sequencia é uma sequencia de variaveis
+nomeadas ou seja cada variavel tem um nome.
+
+***************************************************************************************************************************************************
+
+Quais são as propriedades de um objeto;
+
+As propriedades representam os valores que caracterizam o objeto.
+
+-criar um funcionalidade (menu)
+
+- objetos do tipo menu
+
+id          : string
+capitions:  : string  
+items       : array de itemDeMenu
+
+- Objetos de tipo ItemDeMenu
+href    :  string
+target  :  string
+caption :  string
+	
+ 
+
+*****************************************************************************************************************************************************
+
+<?
+// Criando nossa classe
+class Aluno {
+  var $nome;
+  var $turma;
+  var $idade;
+}
+>
+
+<?
+//Instanciando nossa classe
+require_once("Aluno.php");
+$emanuel = new Aluno;
+$emanuel->nome =  "Emanuel Gonçalves";
+$emanuel->turma = 3001;
+$emanuel->idade = 19;
+>
+
+ - Novamente considerações importantes: há uma outra convenção, que você crie seus módulos (arquivos com as classes) e nomeie eles
+começando com letra maiúscula, que nem na classe. Ao instanciar minha classe, usei o operador new. Por fim, é uma regra sintática do PHP, 
+que particularmente me incomoda bastante, que se deve usar para acessar um atributo ou um método, o ->, ou setinha. Assim, quando faço
+$emanuel->nome estou acessando o atributo nome do objeto emanuel da classe Aluno.
+
+ - Para terminar este texto, vou falar dos métodos, que são coisas que as classes podem fazer. Até aqui, falei dos atributos, que são
+as características das classes. Os métodos são nada mais, nada menos que funções dentro das classes. Qual seria um método de um aluno?
+
+<?
+//Criando o método fazer prova e chamando ele no meu objeto
+class Aluno {
+  // ... Código passado
+  
+  function fazerProva() {
+    echo "{$this->nome} está fazendo prova";
+  }
+}
+// Chamando meu método
+// ... Código passado
+$emanuel->fazerProva();
+>
+
+ - Note mais algumas coisas: um método é uma função, então começa com a palavra reservada function. Outra coisa,
+para eu acessar um atributo da minha classe no meu método, eu uso o $this. E por fim, para eu acessar este método no meu objeto,
+uso do mesmo artifício dos atributos, ->, e o nome do método.
