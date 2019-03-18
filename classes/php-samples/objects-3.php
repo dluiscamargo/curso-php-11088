@@ -24,7 +24,6 @@ class ItemMenu{
     public $caption;
     
 }
-
 //Instanciando nossa classe
 $oMenu = new Menu();
 $oMenu->id =  "Menu_2";

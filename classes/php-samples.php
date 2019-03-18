@@ -25,13 +25,18 @@ $asFilesSamples = [ [
 ];
 
 $asSessionSamples = [ [
-        "href" => "#",
+        "href" => "php-samples/session-1.php",
         "target" => "ifrNav",
-        "caption" => "Teste 1.1"
+        "caption" => "Session 1 - create"
      ],[
-        "href" => "#",
+        "href" => "php-samples/session-2.php",
         "target" => "ifrNav",
-        "caption" => "Teste 1.2"
+        "caption" => "Session 2 - use"
+     ],
+     [
+        "href" => "php-samples/session-3.php",
+        "target" => "ifrNav",
+        "caption" => "Session 3 - destroy"
      ] 
 ];
 

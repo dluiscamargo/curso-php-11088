@@ -17,7 +17,7 @@ $aVarName = array(2,4,9) // php mais antigo
 $aVarName[3] = 3; //adiciona elementos ao array
 $aVarName[1] = 5;
 $aVarName[8] = 7;
---nesta notação o array não tem indice
+--nesta notaï¿½ï¿½o o array nï¿½o tem indice
 ************************************************************************************************************************************************
 
 $aVarName["teste"] = 3; //adiciona elementos ao array
@@ -26,16 +26,16 @@ $aVarName["name"] = 7;
 
 $aVarName = ["teste" => 2, "abacaxi" => 6, "name" => 9];
 
--- nesta forma cria-se o array com a indexação associativa: os indeices são definidos pod strings
+-- nesta forma cria-se o array com a indexaï¿½ï¿½o associativa: os indeices sï¿½o definidos pod strings
 
-independente da forma como o array é criado e da forma como ele é indexado, nós sempre temos uma sequencia de variaveis indexadas;
+independente da forma como o array ï¿½ criado e da forma como ele ï¿½ indexado, nï¿½s sempre temos uma sequencia de variaveis indexadas;
 
-Um objeto também é definidao (entre outras coisas) por uma sequencia de variaveis (como um array )porem esta sequencia é uma sequencia de variaveis
+Um objeto tambï¿½m ï¿½ definidao (entre outras coisas) por uma sequencia de variaveis (como um array )porem esta sequencia ï¿½ uma sequencia de variaveis
 nomeadas ou seja cada variavel tem um nome.
 
 ***************************************************************************************************************************************************
 
-Quais são as propriedades de um objeto;
+Quais sï¿½o as propriedades de um objeto;
 
 As propriedades representam os valores que caracterizam o objeto.
 
@@ -69,33 +69,38 @@ class Aluno {
 //Instanciando nossa classe
 require_once("Aluno.php");
 $emanuel = new Aluno;
-$emanuel->nome =  "Emanuel Gonçalves";
+$emanuel->nome =  "Emanuel Gonï¿½alves";
 $emanuel->turma = 3001;
 $emanuel->idade = 19;
 >
 
- - Novamente considerações importantes: há uma outra convenção, que você crie seus módulos (arquivos com as classes) e nomeie eles
-começando com letra maiúscula, que nem na classe. Ao instanciar minha classe, usei o operador new. Por fim, é uma regra sintática do PHP, 
-que particularmente me incomoda bastante, que se deve usar para acessar um atributo ou um método, o ->, ou setinha. Assim, quando faço
+ - Novamente consideraï¿½ï¿½es importantes: hï¿½ uma outra convenï¿½ï¿½o, que vocï¿½ crie seus mï¿½dulos (arquivos com as classes) e nomeie eles
+comeï¿½ando com letra maiï¿½scula, que nem na classe. Ao instanciar minha classe, usei o operador new. Por fim, ï¿½ uma regra sintï¿½tica do PHP, 
+que particularmente me incomoda bastante, que se deve usar para acessar um atributo ou um mï¿½todo, o ->, ou setinha. Assim, quando faï¿½o
 $emanuel->nome estou acessando o atributo nome do objeto emanuel da classe Aluno.
 
- - Para terminar este texto, vou falar dos métodos, que são coisas que as classes podem fazer. Até aqui, falei dos atributos, que são
-as características das classes. Os métodos são nada mais, nada menos que funções dentro das classes. Qual seria um método de um aluno?
+ - Para terminar este texto, vou falar dos mï¿½todos, que sï¿½o coisas que as classes podem fazer. Atï¿½ aqui, falei dos atributos, que sï¿½o
+as caracterï¿½sticas das classes. Os mï¿½todos sï¿½o nada mais, nada menos que funï¿½ï¿½es dentro das classes. Qual seria um mï¿½todo de um aluno?
 
 <?
-//Criando o método fazer prova e chamando ele no meu objeto
+//Criando o mï¿½todo fazer prova e chamando ele no meu objeto
 class Aluno {
-  // ... Código passado
+  // ... CÃ³digo passado
   
   function fazerProva() {
-    echo "{$this->nome} está fazendo prova";
+    echo "{$this->nome} estï¿½ fazendo prova";
   }
 }
-// Chamando meu método
-// ... Código passado
+// Chamando meu mï¿½todo
+// ... Cï¿½digo passado
 $emanuel->fazerProva();
 >
 
- - Note mais algumas coisas: um método é uma função, então começa com a palavra reservada function. Outra coisa,
-para eu acessar um atributo da minha classe no meu método, eu uso o $this. E por fim, para eu acessar este método no meu objeto,
-uso do mesmo artifício dos atributos, ->, e o nome do método.
+ - Note mais algumas coisas: um mï¿½todo ï¿½ uma funï¿½ï¿½o, entï¿½o comeï¿½a com a palavra reservada function. Outra coisa,
+para eu acessar um atributo da minha classe no meu mï¿½todo, eu uso o $this. E por fim, para eu acessar este mï¿½todo no meu objeto,
+uso do mesmo artifï¿½cio dos atributos, ->, e o nome do mï¿½todo.
+--------------------------
+banco de dados
+
+cliente-servidor
+------------------------------------------------------------------------------------------------------------------------------
