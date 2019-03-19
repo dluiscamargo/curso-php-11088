@@ -26,6 +26,7 @@ if(isset($_SESSION["session-name"])){
                 echo "<h5>PHP Sesssion: $sSessionName </h5>";
             ?>
         </div>
+        <a href="../../data/northwind_data.sql"></a>
     </body>
 </html>
 
