@@ -2,14 +2,15 @@
 require_once "../utilities/menu-utilities.php";
 
 $asLinks1 = [ [
-        "href" => "#",
+        "href" => "create-user-admin.php",
         "target" => "ifrNav",
-        "caption" => "Teste 1.1"
-     ],[
-        "href" => "#",
-        "target" => "ifrNav",
-        "caption" => "Teste 1.2"
-     ] 
+        "caption" => "Admin"
+    ]
+//     [
+//        "href" => "#",
+//        "target" => "ifrNav",
+//        "caption" => "Teste 1.2"
+//     ] 
 ];
 ?>
 <!DOCTYPE html>
@@ -39,7 +40,7 @@ $asLinks1 = [ [
                        href="../index.php">Home</a>
                 </li>
                 <?php
-                    echo buildDropdownMenu( "NavItem1", "Menu 1", $asLinks1 );
+                    echo buildDropdownMenu( "NavItem1", "Deploy", $asLinks1 );
                 ?>
             </ul>
         </nav>

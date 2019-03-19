@@ -9,10 +9,22 @@ class Database{
     private  $dbConn = null;
     private  $sStatus = "";
     private  $bStatus= false;
-
+    private  $vQueryResult = false;
 
     public function __construct (){
         //TODO:CARREGAR INFORMAÇÕES DE ACESSO AO BANCO DE DADOS APARTIR DE UMA ARQUIVO
+    }
+    
+    public function __destruct() {
+        if($this->dbConn){
+            switch ($this->sDriver){
+                case "POSTGRESQL":
+                    break;
+                case "MYSQL":
+                default :
+                    mysqli_close($this->dbConn);
+            }
+        }
     }
     
     public function starDatabase() : bool{
@@ -34,6 +46,7 @@ class Database{
                 */
                 break;
         }//switch
+        //se a conexão foi estabelecida
         if($this->dbConn){
             $this->sStatus = "Database conection ready.";
             $this->bStatus = true;
@@ -49,6 +62,38 @@ class Database{
     public function status() : string{
         return $this->sStatus;
     }
+    
+    private function exec ( $sqlCommand ){
+        if($this->dbConn){  
+            switch ($this->sDriver){
+                case "POSTGRESQL":
+                    break;
+                case "MYSQL":
+                default :
+                    $this->vQueryResult = mysqli_query(  $this->dbConn , $sqlCommand);
+            }
+        }
+    }
+    
+    //@param type $sTable  products; 
+    //@param type $asFields["ProductID"];
+    //@param type $asFields["ProductName"];   
+    //@param type $asFields["UnitsInStock"];   
+    public function insert(){
+        //TODO
+    }
+    public function update(){
+        //TODO
+    }
+    public function delete(){
+        //TODO
+        $delete = "DELETE FROM productos WHERE ProductID='Alfreds Futterkiste'";
+    }
+    public function select($sTable, $asFildes, $asFilter){
+        //TODO
+        $sql = "SELECT * FROM productos";
+    }
+    
     
 }
 
