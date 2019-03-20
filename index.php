@@ -50,6 +50,13 @@ $asDeploy = [[
     ]
 ];
 
+$asCRUD = [[
+    "href" => "crud/crud.php",
+    "target" => "_self",
+    "caption" => "Cadastros"
+    ]
+];
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -82,6 +89,7 @@ $asDeploy = [[
                     echo buildDropdownMenu( "NavItem2", "Exercícios", $asExercicios );
                     echo buildDropdownMenu( "NavItem3", "Módulos", $asModules );
                     echo buildDropdownMenu( "NavItem4", "Deploy", $asDeploy );
+                    echo buildDropdownMenu( "NavItem5", "Cadastros", $asCRUD );
                 ?>
             </ul>
         </nav>

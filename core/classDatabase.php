@@ -74,26 +74,53 @@ class Database{
             }
         }
     }
+    /*
+    @param type $sTable  products; 
     
-    //@param type $sTable  products; 
-    //@param type $asFields["ProductID"];
-    //@param type $asFields["ProductName"];   
-    //@param type $asFields["UnitsInStock"];   
+    @param type $asFields["ProductID"];
+                         ["ProductName"];   
+                         ["UnitsInStock"]; 
+                         - se for um array vazio então seleciona todos (*)
+                                  
+    @param type $asFilter["CategoryId" => category_id ]
+                         -se não for um array vazio então não tem filtro
+    
+    */
     public function insert(){
         //TODO
     }
+    
     public function update(){
         //TODO
     }
+    
     public function delete(){
         //TODO
-        $delete = "DELETE FROM productos WHERE ProductID='Alfreds Futterkiste'";
-    }
-    public function select($sTable, $asFildes, $asFilter){
-        //TODO
-        $sql = "SELECT * FROM productos";
+//        $delete = "DELETE FROM productos WHERE ProductID=''";
     }
     
+    public function select($sTable, array $asFields, array $asFilter){
+        //TODO: montar o comando de SQL de acordo com os parametros 
+        $sql = "SELECT * FROM $sTable";
+        //public function select($sTable, array $asFields, array $asFilter){}
+        $this->exec($sql);
+    }
+    public function recordCount() {
+        return mysqli_num_rows($this->vQueryResult);
+    }
+    public function getRecord() {
+        return mysqli_fetch_array( $this->vQueryResult) ;
+        
+    }
     
+    public function getRecord_object() {
+        return mysqli_fetch_object( $this->vQueryResult) ;
+        
+    }
+    
+    public function getRecord_assoc() {
+        return mysqli_fetch_assoc( $this->vQueryResult) ;
+        
+    }
 }
 

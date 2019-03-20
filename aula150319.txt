@@ -113,3 +113,5 @@ DML DATA MANIPULATON LANGUAGE
 do ponto de vista do php oque é o sql?  = texto, string.
 do ponto de vista do php oque é o jSon? = texto.
 do ponto de vista do php oque é o html? = texto.
+
+
