@@ -1,7 +1,7 @@
 <?php
 require_once '../../core/classDatabase.php';
 
-$dsProducts = new Products();
+$dbData = new Database();
 $dbData->starDatabase();
 $sStatus = $dbData->status();
 //guia de referencia

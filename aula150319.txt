@@ -120,3 +120,11 @@ do ponto de vista do php oque é o html? = texto.
 //INSERT INTO `categories`(`CategoryID`, `CategoryName`, `Description`, `Picture`) VALUES ([value-1],[value-2],[value-3],[value-4])
 //DELETE FROM `categories` WHERE 0
 
+---------------------------------------------------------
+TABELA NO BANCO DE DADOS
+    NOME DA TABELA
+    CAMPOS
+    CHAVE PRIMARIA E SE É AUTO_INCREMENT
+
+
+ 
