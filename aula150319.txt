@@ -115,3 +115,8 @@ do ponto de vista do php oque é o jSon? = texto.
 do ponto de vista do php oque é o html? = texto.
 
 
+-------------------------------------------
+//UPDATE `categories` SET `CategoryID`=[value-1],`CategoryName`=[value-2],`Description`=[value-3],`Picture`=[value-4] WHERE 1
+//INSERT INTO `categories`(`CategoryID`, `CategoryName`, `Description`, `Picture`) VALUES ([value-1],[value-2],[value-3],[value-4])
+//DELETE FROM `categories` WHERE 0
+
