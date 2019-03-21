@@ -1,155 +1,179 @@
 <?php
 
-class Database {
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 
+class Database{
     private $sDriver = "MYSQL";
+
     private $sHost = "localhost";
     private $iPort = 3306;
+
     private $sUser = "root";
     private $sPass = "";
+
     private $sDatabase = "northwind";
+
     private $dbConn = null;
+
+    private $vQueryResult = false; // v de Variant
+
     private $sStatus = "";
     private $bStatus = false;
-    private $vQueryResult = false;
 
-    public function __construct() {
-        //TODO:CARREGAR INFORMAÇÕES DE ACESSO AO BANCO DE DADOS APARTIR DE UMA ARQUIVO
-    }
+    public function __construct(){
+        // TODO: carregar informações de acesso ao BD
+        //       a partir de um arquivo
+    } // public function __construct(){
 
-    public function __destruct() {
-        if ($this->dbConn) {
-            switch ($this->sDriver) {
+    public function __destruct(){
+        if ( $this->dbConn ){
+            switch ( $this->sDriver ){
                 case "POSTGRESQL":
                     break;
-                case "MYSQL":
-                default :
-                    mysqli_close($this->dbConn);
-            }
-        }
-    }
 
-    public function starDatabase(): bool {
-        switch ($this->sDriver) {
+                case "MYSQL":
+                default:
+                    mysqli_close( $this->dbConn );
+            } // switch ( $this->sDriver ){
+        } // if ( $this->dbConn ){
+    } // public function __destruct(){
+
+    public function startDatabase() : bool{
+
+        switch ( $this->sDriver ){
             case "POSTGRESQL":
                 break;
-            case "MYSQL":
-            default :
-                $this->dbConn = mysqli_connect($this->sHost,
-                        $this->sUser,
-                        $this->sPass,
-                        $this->sDatabase);
-                /* ou
-                  $this->$dbConn = new mysqli($this->sHost,
-                  $this->sUser,
-                  $this->sPass,
-                  $this->sDatabase);
 
+            case "MYSQL":
+            default:
+                $this->dbConn = mysqli_connect( $this->sHost,
+                                                $this->sUser,
+                                                $this->sPass,
+                                                $this->sDatabase );
+                /* OU
+                $this->dbConn = new mysqli( $this->sHost,
+                                            $this->sUser,
+                                            $this->sPass,
+                                            $this->sDatabase );
+                 *
                  */
                 break;
-        }//switch
-        //se a conexão foi estabelecida
-        if ($this->dbConn) {
-            $this->sStatus = "Database conection ready.";
+        } // switch ( $sDriver ){
+
+        // SE A CONEXÃO FOI ESTABELECIDA ENTÃO
+        if ( $this->dbConn ){
+            $this->sStatus = "Database connection ready.";
             $this->bStatus = true;
-            return true;
-        } else {
-            $this->sStatus = "Connect error:" . mysqli_connect_errno() .
-                    " - " . mysqli_connect_error();
+        } // if ( $this->dbConn ){
+        else{
+            $this->sStatus = "Connect error: ".mysqli_connect_errno().
+                             " - ".mysqli_connect_error();
             $this->bStatus = false;
-        }
+        } // if ( $this->dbConn ){ .. else
+
         return $this->bStatus;
-    }
+    } // public function startDatabase(){
 
-    public function status(): string {
+    public function status() : string{
         return $this->sStatus;
-    }
+    } // public function status() : string{
 
-    private function exec($sqlCommand) {
-        if ($this->dbConn) {
-            switch ($this->sDriver) {
+    private function exec( $sqlCommand ){
+        if ( $this->dbConn ){
+            switch ( $this->sDriver ){
                 case "POSTGRESQL":
                     break;
+
                 case "MYSQL":
-                default :
-                    $this->vQueryResult = mysqli_query($this->dbConn, $sqlCommand);
-            }
-        }
+                default:
+                    $this->vQueryResult = mysqli_query( $this->dbConn, $sqlCommand );
+            } // switch ( $this->sDriver ){
+        } // if ( $this->dbConn ){
+    } // private function exec( $sqlCommand ){
+
+    public function insert(){
+        // TODO:
     }
 
-    /*
-      @param type $sTable  products;
+    public function update(){
+        // TODO:
+    }
 
-      @param type $asFields["ProductID"];
-      ["ProductName"];
-      ["UnitsInStock"];
-      - se for um array vazio então seleciona todos (*)
+    public function delete(){
+        // TODO:
+    }
 
-      @param type $asFilter["CategoryId" => category_id ]
-      -se não for um array vazio então não tem filtro
-
+    /**
+     * 
+     * @param type $sTable      products
+     * @param type $asFields    [ "ProductId", 
+     *                            "ProductName", 
+     *                            "UnitsInStock" ]
+     *                          - SE FOR UM ARRAY VAZIO ENTÃO 
+     *                            SELECIONAR TODOS (*)
+     * 
+     * @param type $asFilter    [ "CategoryId" => category_id ]
+     *                          - SE FOR UM ARRAY VAZIO ENTÃO NÃO
+     *                            TEM FILTRO
      */
-
-    public function insert() {
-        //TODO
-    }
-
-    public function update() {
-        //TODO
-    }
-
-    public function delete() {
-        //TODO
-//        $delete = "DELETE FROM productos WHERE ProductID=''";
-    }
-
-    public function select($sTable, array $asFields, array $asFilter) {
-        //TODO: montar o comando de SQL de acordo com os parametros 
-        if (count($asFields) === 0) {
+    public function select_( $sTable, array $asFields, array $asFilter ){
+        // TODO: montar o comando SQL de acordo com os parametros
+        if ( count( $asFields ) === 0 ){
             $sFields = "*";
-        } else {
-            $sFields = $this->getFieldsList($asFields);
-        }
-        $sql = "SELECT $sFields FROM $sTable";
-        //public function select($sTable, array $asFields, array $asFilter){}
-        $this->exec($sql);
+        } // if ( count( $asFields ) === 0 ){
+        else{
+            $sFields = $this->getFieldsList( $asFields );
+        } // if ( count( $asFields ) === 0 ){ .. else
+        
+        $sql = "SELECT $sFields FROM $sTable";        
+        
+        $this->exec( $sql );
+        
+    } // public function select( $sTable, $asFields, $asFilter ){
+    
+    public function recordCount(){
+        return mysqli_num_rows( $this->vQueryResult );
     }
-
-    public function recordCount() {
-        return mysqli_num_rows($this->vQueryResult);
+    
+    public function getRecord(){
+        return mysqli_fetch_array( $this->vQueryResult );
     }
-
-    public function getRecord() {
-        return mysqli_fetch_array($this->vQueryResult);
+    
+    public function getRecord_object(){
+        return mysqli_fetch_object( $this->vQueryResult );
     }
-
-    public function getRecord_object() {
-        return mysqli_fetch_object($this->vQueryResult);
+    
+    public function getRecord_assoc(){
+        return mysqli_fetch_assoc( $this->vQueryResult );
     }
-
-    public function getRecord_assoc() {
-        return mysqli_fetch_assoc($this->vQueryResult);
-    }
-
-    private function getFieldsList(array $asFields) {
-        if (1) {
+    
+    private function getFieldsList( array $asFields ){            
+        // "ProductId, ProductName, UnitsInStock"
+        if ( 1 ){
+            // SOLUÇÃO 1
             $i = 0;
-            //ProductID,ProductName,UnitsInStock
-            foreach ($asFields as $sField) {
+            foreach( $asFields as $sField ){
                 $i++;
-                if ($i === 1) {
+                if ( $i === 1 ){
                     $sFields = $sField;
                     continue;
-                }
-                $sFields .= ", $sField";
-            }
-        } else {
-            $sFields = array_shift($asFields);
-            foreach ($asFields as $sField) {
-                $sFields .= ", $sField";
-            }
+                } // if ( $i === 1 ){
+                $sFields .= ", $sField";                
+            } // foreach( $asFields as $sField ){
+        }
+        else{
+            // SOLUÇÃO 2
+            $sFields = array_shift( $asFields );                
+            foreach( $asFields as $sField ){
+                $sFields .= ", $sField";                
+            } // foreach( $asFields as $sField ){                
         }
         return $sFields;
-    }
+    } // private function getFieldsList( array $asFields ){
 
-}
+} // class Database{
+

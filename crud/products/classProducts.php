@@ -1,31 +1,21 @@
 <?php
-require_once '../../core/classDataset.php';
 
- class Products extends Dataset{
-     private  $sTable;
-     private  $asFields;
-     private  $abPrimary;
-     
-//   ["ProductId"=> true ] ++ é auto-increment
-//   ["CustomerId"=> false] não é auto-increment
-     
-    function __construct() {
-        $this->sTable = "Product";
-        $this->asFields = [
-            "ProductId",
-            "ProductName",
-            "SupplierId",
-            "CategoryId",
-            "UnitPrice",
-            "UnitsInStock" ];
-        $this->abPrimary = [ "ProductId" => true];
-    }
-    
-    public function selectAll() {
+require_once '../../core/autoloader.php';
+
+class Products extends Dataset{    
+    function __construct(){
+        parent::__construct();
         
-    }
-    
-    public function select( array $asFields, array $asFilter ) {
+        $this->sTable   =  "products";
+        $this->asFields = [ 
+           "ProductId",
+           "ProductName",
+           "SupplierId", 
+           "CategoryId",
+           "UnitPrice",
+           "UnitsInStock" ];
         
-    }
- }
+        $this->abPrimary = [ "ProductId" => true ];
+    } // function __construct(){    
+} // class Products extends Dataset{
+
