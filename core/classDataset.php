@@ -25,6 +25,10 @@ class Dataset extends Database{
         $this->select_( $this->sTable, $this->asFields, $asFilter );
     }
     
+    protected function insert( array $asColumns) {
+        $this->insert_( $this->sTable, $asColumns);
+    }
+    
     
     
 }

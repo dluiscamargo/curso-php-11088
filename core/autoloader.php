@@ -12,7 +12,9 @@ function loadDirs(){
                 "crud"      => "$sLocation/crud/",
                 "customers" => "$sLocation/crud/customers/",
                 "products"  => "$sLocation/crud/products/",
-                "suppliers" => "$sLocation/crud/suppliers/", ];
+                "suppliers" => "$sLocation/crud/suppliers/",
+                "Users" => "$sLocation/crud/users/"
+            ];
 
 //    $asDirModules = scandir( $asDirs[ "crud"] );
 //

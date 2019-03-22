@@ -22,39 +22,28 @@ $asProducts = [ [
 $asCustomers = [];
 $asSuppliers = [];
 $asEmployees = [];
-$asUsers     = [];
+$asUsers     = [[
+        "href" => "users/select.php",
+        "target" => "ifrNav",
+        "caption" => "Consultar"
+     ],[
+        "href" => "users/insert.php",
+        "target" => "ifrNav",
+        "caption" => "Cadastrar"
+     ] 
+];
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
         <meta charset="utf-8" />
-        <meta name="viewport"
-              content="width=device-width, initial-scale=1" />
-        <title>Modelo</title>
-
-        <meta charset="utf-8" />
-        
-        <meta name="viewport"
-              content="width=device-width, initial-scale=1" />
-        
-        <!-- ARQUIVOS NA PASTA node_modules DO PROJETO -->
-<!--        <link rel="stylesheet"
-              href="../node_modules/bootstrap/dist/css/bootstrap.min.css" />
-        
-        <script src="../node_modules/jquery/dist/jquery.min.js"></script>
-        <script src="../node_modules/popper.js/dist/umd/popper.min.js"></script>
-        <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>-->
-        
-        <!-- ARQUIVOS ONLINE (NA NUVEM) - CÓDIGO COPIADO DE
-        https://www.w3schools.com/bootstrap4/tryit.asp?filename=trybs_dropdown-active&stacked=h -->
-        <link rel="stylesheet"
-              href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Curd</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-        
     </head>
-
     <body style="width:100%;height:100%">
         <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
             <a class="navbar-brand" 
@@ -72,13 +61,12 @@ $asUsers     = [];
                     echo buildDropdownMenu( "NavItem1", "Produtos", $asProducts );
                     echo buildDropdownMenu( "NavItem2", "Clientes", $asCustomers );
                     echo buildDropdownMenu( "NavItem3", "Fornecedores", $asSuppliers );
+                    echo buildDropdownMenu( "NavItem4", "Usuarios", $asUsers );
                 ?>
             </ul>
         </nav>
         <div style="position:absolute;top:60px;width:100%;height:600px;background-color:#000;padding:10px;">
-            <iframe id="ifrNav" 
-                    name="ifrNav"
-                    style="width:100%;height:100%;background-color:#aaa"></iframe>
+            <iframe id="ifrNav" name="ifrNav" style="width:100%;height:100%;background-color:#aaa"></iframe>
         </div>
     </body>
 </html>
