@@ -1,11 +1,5 @@
 <?php
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 class Database{
     private $sDriver = "MYSQL";
 
@@ -129,7 +123,30 @@ class Database{
             $sFields = $this->getFieldsList( $asFields );
         } // if ( count( $asFields ) === 0 ){ .. else
         
-        $sql = "SELECT $sFields FROM $sTable";        
+        $sWhere = "";
+        if( count ($asFilter) !== 0){
+            if(0){ //ou 1
+                $i = 0;
+                foreach ( $asFilter as $sKey => $vValue){
+                    $i++;
+                    if( $i === 1){
+                        $sWhere = " WHERE $sKey='$vValue'";
+                        continue;
+                    }
+                    $sWhere .= " AND $sKey='$vValue'";
+                }
+            }
+            else{
+                $asKey = each($asFilter);
+                $sWhere = " WHERE {$asKey["key"]}={$asKey["value"]}";
+                array_shift($asFilter);
+                foreach ($asFilter as $key => $vValue) {
+                    $sWhere .= "AND $sKey='$vValue'";
+                }                
+            }
+        }
+        
+        $sql = "SELECT $sFields FROM $sTable$sWhere";        
         
         $this->exec( $sql );
         

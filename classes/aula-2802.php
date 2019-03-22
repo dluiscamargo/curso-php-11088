@@ -11,6 +11,8 @@
 
 	<body>
       <?php
+        $asTeste = ["a" => "123abc", "b" => "234bcd"];
+        print_r ( each($asTeste));
       ?>
 	</body>
 </html>

@@ -4,7 +4,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-require_once "../../core/autoloader.php";
+require_once "../../core/config.php";
 //require_once '../../core/classDatabase.php';
 
 $dbData = new Database();

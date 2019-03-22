@@ -1,6 +1,6 @@
 <?php
 
-require_once '../../core/autoloader.php';
+require_once '../../core/config.php';
 
 class Products extends Dataset{    
     function __construct(){
@@ -16,6 +16,14 @@ class Products extends Dataset{
            "UnitsInStock" ];
         
         $this->abPrimary = [ "ProductId" => true ];
-    } // function __construct(){    
+    } // function __construct(){  
+    
+    public function selectByCategory($iCategoryId) {
+        
+    }
+    
+    public function selectBySupplier($iSupplierId) {
+        
+    }
 } // class Products extends Dataset{
 

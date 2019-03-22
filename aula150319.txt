@@ -127,4 +127,12 @@ TABELA NO BANCO DE DADOS
     CHAVE PRIMARIA E SE É AUTO_INCREMENT
 
 
- 
+ -------------------------------------------------
+DATABASE = conexao com o banco de dados 
+--------------------------------------------------
+DATASET = [ conexão com o banco de dados
+            acesso generico as tabelas  ]
+----------------------------------------------------
+TAB SUPPLIERS... 
+TAB PRODUCTS  = [ conexão com o banco de dados
+                 acesso especializado a uma determinada tabela ]
